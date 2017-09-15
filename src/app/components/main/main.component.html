@@ -1,0 +1,9 @@
+<div>
+  <!--<app-search></app-search>-->
+
+  <input type="text" [(ngModel)]="searchQuery" (change)="filterSingers($event.target.value)">
+
+  <ul class="singers-list" *ngFor="let singer of filteredSingers">
+    <li class="singer-item">{{ singer.name }}</li>
+  </ul>
+</div>
