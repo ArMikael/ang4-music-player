@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-main',
@@ -11,18 +11,13 @@ export class MainComponent {
 
   constructor() {
     this.singers = [
-      {name: 'Red Hot Chilli Peppers'},
-      {name: 'Coldplay'},
-      {name: 'Lana Del Ray'}
+      {name: 'Red Hot Chilli Peppers', image: 'assets/img/red-hot-chilli-peppers.png'},
+      {name: 'Coldplay', image: 'assets/img/coldplay.png'},
+      {name: 'Lana Del Ray', image: 'assets/img/lana-del-ray.png'}
     ];
 
     this.filteredSingers = this.singers;
   }
 
-  // filterSingers (searchQuery: string) {
-  //   this.filteredSingers = this.singers.filter(function(singer){
-  //     return singer.name.indexOf(searchQuery) > -1;
-  //   });
-  // }
 
 }
