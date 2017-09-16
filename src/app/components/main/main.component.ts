@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {log} from "util";
 
 @Component({
   selector: 'app-main',
@@ -20,10 +19,10 @@ export class MainComponent {
     this.filteredSingers = this.singers;
   }
 
-  filterSingers (searchQuery: string) {
-    this.filteredSingers = this.singers.filter(function(singer){
-      return singer.name.indexOf(searchQuery) > -1;
-    });
-  }
+  // filterSingers (searchQuery: string) {
+  //   this.filteredSingers = this.singers.filter(function(singer){
+  //     return singer.name.indexOf(searchQuery) > -1;
+  //   });
+  // }
 
 }
