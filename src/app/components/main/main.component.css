@@ -1,3 +1,22 @@
-ul {
-  list-style: none;
+.main {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.singers-list-section {
+  display: inline-block;
+  vertical-align: top;
+  width: 25%;
+  padding: 12px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.video-player-section {
+  display: inline-block;
+  vertical-align: top;
+  width: 73%;
+  padding: 12px;
+  overflow: hidden;
+  box-sizing: border-box;
 }
