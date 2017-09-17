@@ -11,9 +11,16 @@ export class MainComponent {
 
   constructor() {
     this.singers = [
-      {name: 'Red Hot Chilli Peppers', image: 'assets/img/red-hot-chilli-peppers.png'},
-      {name: 'Coldplay', image: 'assets/img/coldplay.png'},
-      {name: 'Lana Del Ray', image: 'assets/img/lana-del-ray.png'}
+      {id: 1,
+        name: 'Red Hot Chilli Peppers',
+        image: 'assets/img/red-hot-chilli-peppers.png',
+        videoUrl: 'https://www.youtube.com/embed/YlUKcNNmywk'},
+      {id: 2, name: 'Coldplay',
+        image: 'assets/img/coldplay.png',
+        videoUrl:'https://www.youtube.com/embed/1G4isv_Fylg'},
+      {id: 3, name: 'Lana Del Ray',
+        image: 'assets/img/lana-del-ray.png',
+        videoUrl: 'https://www.youtube.com/embed/TdrL3QxjyVw'}
     ];
 
     this.filteredSingers = this.singers;
