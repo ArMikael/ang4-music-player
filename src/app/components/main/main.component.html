@@ -1,11 +1,9 @@
 <div>
-  <!--<app-search></app-search>-->
-
   <input type="text" [(ngModel)]="searchQuery">
 
   <ul class="singers-list">
     <li *ngFor="let singer of filteredSingers | search : searchQuery">
-      <app-singer-card  [singer]="singer"></app-singer-card>
+      <app-singer-card [singer]="singer" (click)="onSingerCardClick(singer)"></app-singer-card>
     </li>
   </ul>
 </div>

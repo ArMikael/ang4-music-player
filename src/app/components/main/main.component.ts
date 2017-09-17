@@ -19,5 +19,8 @@ export class MainComponent {
     this.filteredSingers = this.singers;
   }
 
+  onSingerCardClick(singerObj) {
+    console.log('SingerCard clicked: ', singerObj);
+  }
 
 }
