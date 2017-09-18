@@ -13,4 +13,8 @@ export class SingerCardComponent {
   click = new EventEmitter();
 
   constructor() { }
+
+  onClick() {
+    this.click.emit();
+  }
 }

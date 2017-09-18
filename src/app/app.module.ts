@@ -9,6 +9,7 @@ import { SearchPipe } from './pipes/search.pipe';
 import { SingerCardComponent } from './components/singer-card/singer-card.component';
 import { VideoPlayerComponent } from './components/video-player/video-player.component';
 import { MainComponent } from './components/main/main.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { MainComponent } from './components/main/main.component';
     SingerCardComponent,
     SingersListComponent,
     VideoPlayerComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
