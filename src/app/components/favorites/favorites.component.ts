@@ -36,8 +36,6 @@ export class FavoritesComponent implements OnInit {
   }
 
   editSongDetails(song) {
-    console.log(song);
-    //var index = this.favorites.indexOf(song);
     this.songArtist = song.artist;
     this.songTitle = song.title;
     this.songId = song.id;
@@ -45,16 +43,10 @@ export class FavoritesComponent implements OnInit {
   }
 
   updateSong(id) {
-    console.log(id);
-    //var index = this.favorites.indexOf(id);
+    var index = this.favorites.map(song => song.id).indexOf(id);
 
-    var changedSong = this.favorites.filter(function(song){
-      return song.id == id;
-    });
-
-    changedSong[0].artist = this.songArtist;
-    changedSong[0].title = this.songTitle;
-
-    console.log(changedSong);
+    this.favorites[index].title = this.songTitle;
+    this.favorites[index].artist = this.songArtist;
+    this.showSongEditForm = false;
   }
 }
