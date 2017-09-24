@@ -2,5 +2,16 @@
 <ul class="favorites-list">
   <li class="favorite-song" *ngFor="let song of favorites">
     {{ song.artist }} - {{ song.title}}
+
+    <div class="favorite-buttons">
+      <button class="btn-favorites btn-delete" (click)="removeSong(song)">Del</button>
+      <button class="btn-favorites btn-edit" (click)="editSongDetails(song)">Edit</button>
+    </div>
   </li>
 </ul>
+
+<form class="edit-form" name="editSongForm" *ngIf="showSongEditForm">
+  <input type="text" class="edit-form-input" id="songArtist" name="songArtist" [ngModel]="songArtist" placeholder="Artist">
+  <input type="text" class="edit-form-input" id="songTitle" name="songTitle" [ngModel]="songTitle" placeholder="Title">
+  <button id="updateSong" class="btn-submit" (click)="updateSong(songId)">Save</button>
+</form>

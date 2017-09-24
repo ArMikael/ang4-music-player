@@ -24,7 +24,7 @@ import { SingersDataService } from './services/singers-data.service';
     SingersListComponent,
     VideoPlayerComponent,
     HeaderComponent,
-    FavoritesComponent,
+    FavoritesComponent
   ],
   imports: [
     BrowserModule,
