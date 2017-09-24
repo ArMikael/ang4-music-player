@@ -3,20 +3,24 @@
   margin: 0 auto;
 }
 
-.singers-list-section {
+.singers-list-section,
+.video-player-section,
+.favorites-section {
   display: inline-block;
   vertical-align: top;
-  width: 25%;
   padding: 12px;
   overflow: hidden;
   box-sizing: border-box;
 }
 
+.singers-list-section {
+  width: 25%;
+}
+
 .video-player-section {
-  display: inline-block;
-  vertical-align: top;
-  width: 73%;
-  padding: 12px;
-  overflow: hidden;
-  box-sizing: border-box;
+  width: 48%;
+}
+
+.favorites-section {
+  width: 25%;
 }

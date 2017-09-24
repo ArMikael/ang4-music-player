@@ -10,6 +10,8 @@ import { SearchPipe } from './pipes/search.pipe';
 import { SingerCardComponent } from './components/singer-card/singer-card.component';
 import { VideoPlayerComponent } from './components/video-player/video-player.component';
 import { HeaderComponent } from './components/header/header.component';
+import { FavoritesComponent } from './components/favorites/favorites.component';
+
 
 import { SingersDataService } from './services/singers-data.service';
 
@@ -22,6 +24,7 @@ import { SingersDataService } from './services/singers-data.service';
     SingersListComponent,
     VideoPlayerComponent,
     HeaderComponent,
+    FavoritesComponent,
   ],
   imports: [
     BrowserModule,

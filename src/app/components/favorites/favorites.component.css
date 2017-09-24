@@ -1,0 +1,18 @@
+.favorites-list {
+  list-style: none;
+  padding: 0;
+}
+
+.favorite-song {
+  display: block;
+  height: 24px;
+  line-height: 24px;
+  padding: 12px;
+  background-color: gold;
+  border: 1px solid darkgray;
+  cursor: pointer;
+}
+
+.favorite-song:hover {
+  background-color: ghostwhite;
+}

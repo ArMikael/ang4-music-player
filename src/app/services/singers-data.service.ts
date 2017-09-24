@@ -19,6 +19,29 @@ const singers = [
   }
 ];
 
+let favorites = [
+  {
+    id: 1001,
+    artist: 'Moby',
+    title: 'Count'
+  },
+  {
+    id: 1002,
+    artist: 'Daft Punk',
+    title: 'Drill'
+  },
+  {
+    id: 1003,
+    artist: 'Coldplay',
+    title: 'Science'
+  },
+  {
+    id: 1004,
+    artist: 'U2',
+    title: 'Elevation'
+  },
+];
+
 @Injectable()
 export class SingersDataService {
 
@@ -26,6 +49,10 @@ export class SingersDataService {
 
   getSingers() {
     return singers;
+  }
+
+  getFavorites() {
+    return favorites;
   }
 
 }
