@@ -18,6 +18,7 @@ import { SingersDataService } from './services/singers-data.service';
 import { PlaylistComponent } from './components/playlist/playlist.component';
 import { ArtistsComponent } from './components/artists/artists.component';
 import { ArtistProfileComponent } from './components/artist-profile/artist-profile.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { ArtistProfileComponent } from './components/artist-profile/artist-profi
     FavoritesComponent,
     PlaylistComponent,
     ArtistsComponent,
-    ArtistProfileComponent
+    ArtistProfileComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -47,12 +49,16 @@ import { ArtistProfileComponent } from './components/artist-profile/artist-profi
         component: PlaylistComponent
       },
       {
+        path: 'artists/:artistName',
+        component: ArtistProfileComponent
+      }
+      {
         path: 'artists',
         component: ArtistsComponent
       },
       {
-        path: 'artists/:artistName',
-        component: ArtistProfileComponent
+        path: '**',
+        component: NotFoundComponent
       }
     ])
   ],
