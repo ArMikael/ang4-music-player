@@ -51,7 +51,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
       {
         path: 'artists/:artistName',
         component: ArtistProfileComponent
-      }
+      },
       {
         path: 'artists',
         component: ArtistsComponent
