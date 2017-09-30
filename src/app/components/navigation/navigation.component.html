@@ -1,0 +1,17 @@
+<nav class="main-nav">
+  <ul class="navigation-menu">
+    <li class="menu-item">
+      <a class="menu-link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" routerLink="/">Home</a>
+    </li>
+    <li class="menu-item">
+      <a class="menu-link" routerLinkActive="active"  routerLink="playlist">Playlist</a>
+    </li>
+    <li class="menu-item">
+      <a class="menu-link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" routerLink="artists">Artists</a>
+    </li>
+    <li class="menu-item">
+      <a class="menu-link" routerLinkActive="active"  [routerLink]="['/artists/moby']">Artists Id</a>
+    </li>
+  </ul>
+</nav>
+

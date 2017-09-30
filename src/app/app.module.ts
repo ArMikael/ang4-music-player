@@ -44,7 +44,7 @@ import { NavigationComponent } from './components/navigation/navigation.componen
     RouterModule.forRoot([
       {
         path: '',
-        component: SingersListComponent
+        component: MainComponent
       },
       {
         path: 'playlist',

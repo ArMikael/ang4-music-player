@@ -1,3 +1,9 @@
+.main-nav {
+  width: 80%;
+  margin: 20px auto 40px;
+  padding-left: 20px;
+}
+
 ul {
   list-style: none;
   padding: 0;
@@ -12,7 +18,7 @@ ul {
 }
 
 .menu-item {
-  margin-right: 2px;
+  margin-right: 4px;
   overflow: hidden;
 }
 
@@ -28,4 +34,8 @@ ul {
   color: black;
   border-radius: 6px;
   box-sizing: border-box;
+}
+
+.active {
+  background-color: gold;
 }

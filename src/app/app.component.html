@@ -1,9 +1,11 @@
-<app-header>
-  <h1 class="main-header">{{ title }}</h1>
-  <ng-container class="secondary-header">Take a rest and listen to the music</ng-container>
-</app-header>
+<main class="main">
+  <app-header>
+    <h1 class="main-header">{{ title }}</h1>
+    <ng-container class="secondary-header">Take a rest and listen to the music</ng-container>
+  </app-header>
 
-<app-navigation></app-navigation>
+  <app-navigation></app-navigation>
 
-<router-outlet></router-outlet>
-<app-main></app-main>
+  <router-outlet></router-outlet>
+</main>
+
