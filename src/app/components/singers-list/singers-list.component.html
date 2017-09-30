@@ -3,7 +3,8 @@
 
   <ul class="singers-list">
     <li *ngFor="let singer of filteredSingers | search : searchQuery">
-      <app-singer-card [singer]="singer" (click)="onSingerCardClick(singer)"></app-singer-card>
+      <!--(click)="onSingerCardClick(singer)"-->
+      <app-singer-card [singer]="singer" (videoPlayed)="videoPlayed(singer)" ></app-singer-card>
     </li>
   </ul>
 </div>

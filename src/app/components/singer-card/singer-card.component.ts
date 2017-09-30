@@ -10,11 +10,11 @@ export class SingerCardComponent {
   singer: {};
 
   @Output()
-  click = new EventEmitter();
+  videoPlayed = new EventEmitter();
 
   constructor() { }
 
-  onClick() {
-    this.click.emit();
+  playVideo() {
+    this.videoPlayed.emit(this.singer);
   }
 }

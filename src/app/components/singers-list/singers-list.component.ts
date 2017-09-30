@@ -12,7 +12,7 @@ export class SingersListComponent implements OnInit {
 
   constructor(private _singersDataService: SingersDataService) {}
 
-  onSingerCardClick(singerObj) {
+  videoPlayed(singerObj) {
     console.log('SingerCard clicked: ', singerObj);
   }
 
