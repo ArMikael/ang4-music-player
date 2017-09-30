@@ -19,6 +19,7 @@ import { PlaylistComponent } from './components/playlist/playlist.component';
 import { ArtistsComponent } from './components/artists/artists.component';
 import { ArtistProfileComponent } from './components/artist-profile/artist-profile.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { NavigationComponent } from './components/navigation/navigation.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     PlaylistComponent,
     ArtistsComponent,
     ArtistProfileComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    NavigationComponent
   ],
   imports: [
     BrowserModule,
