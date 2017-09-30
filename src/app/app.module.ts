@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { MainComponent } from './components/main/main.component';
@@ -14,6 +15,9 @@ import { FavoritesComponent } from './components/favorites/favorites.component';
 
 
 import { SingersDataService } from './services/singers-data.service';
+import { PlaylistComponent } from './components/playlist/playlist.component';
+import { ArtistsComponent } from './components/artists/artists.component';
+import { ArtistProfileComponent } from './components/artist-profile/artist-profile.component';
 
 @NgModule({
   declarations: [
@@ -24,12 +28,33 @@ import { SingersDataService } from './services/singers-data.service';
     SingersListComponent,
     VideoPlayerComponent,
     HeaderComponent,
-    FavoritesComponent
+    FavoritesComponent,
+    PlaylistComponent,
+    ArtistsComponent,
+    ArtistProfileComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot([
+      {
+        path: '',
+        component: SingersListComponent
+      },
+      {
+        path: 'playlist',
+        component: PlaylistComponent
+      },
+      {
+        path: 'artists',
+        component: ArtistsComponent
+      },
+      {
+        path: 'artists/:artistName',
+        component: ArtistProfileComponent
+      }
+    ])
   ],
   providers: [SingersDataService],
   bootstrap: [AppComponent]
