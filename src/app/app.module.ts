@@ -7,19 +7,20 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { MainComponent } from './components/main/main.component';
 import { SingersListComponent } from './components/singers-list/singers-list.component';
-import { SearchPipe } from './pipes/search.pipe';
 import { SingerCardComponent } from './components/singer-card/singer-card.component';
 import { VideoPlayerComponent } from './components/video-player/video-player.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FavoritesComponent } from './components/favorites/favorites.component';
-
-
-import { SingersDataService } from './services/singers-data.service';
 import { PlaylistComponent } from './components/playlist/playlist.component';
 import { ArtistsComponent } from './components/artists/artists.component';
 import { ArtistProfileComponent } from './components/artist-profile/artist-profile.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
+
+import { SingersDataService } from './services/singers-data.service';
+import { PlaylistService} from './components/playlist/playlist.service';
+import { SearchPipe } from './pipes/search.pipe';
+
 
 @NgModule({
   declarations: [
@@ -64,7 +65,7 @@ import { NavigationComponent } from './components/navigation/navigation.componen
       }
     ])
   ],
-  providers: [SingersDataService],
+  providers: [SingersDataService, PlaylistService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

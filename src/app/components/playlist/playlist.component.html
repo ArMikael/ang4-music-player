@@ -1,3 +1,5 @@
-<p>
-  playlist-component works!
-</p>
+<ul class="playlist">
+  <li class="playlist-song" *ngFor="let song of playlist">
+    {{ song.id }}. {{ song.title }}
+  </li>
+</ul>
