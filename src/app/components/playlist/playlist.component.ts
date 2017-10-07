@@ -20,4 +20,13 @@ export class PlaylistComponent implements OnInit {
       });
   }
 
+  createAlbum(input: HTMLInputElement) {
+    const album = {title: input.value};
+
+    this.playlistService.createAlbum(album)
+      .subscribe(response => {
+        console.log(response.json());
+      });
+  }
+
 }

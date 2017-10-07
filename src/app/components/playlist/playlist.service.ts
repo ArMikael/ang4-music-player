@@ -5,13 +5,16 @@ console.log('Playlist service running');
 
 @Injectable()
 export class PlaylistService {
-  playlistSongs: any[];
+  private url = 'https://jsonplaceholder.typicode.com/albums';
 
   constructor(private http: Http) { }
 
   getPlaylist() {
-      return this.http.get('https://jsonplaceholder.typicode.com/albums');
+      return this.http.get(this.url);
   }
 
+  createAlbum(album) {
+      return this.http.post(this.url, JSON.stringify(album));
+  }
 
 }
