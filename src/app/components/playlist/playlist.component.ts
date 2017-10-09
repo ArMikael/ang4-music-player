@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PlaylistService } from './playlist.service';
 
-console.log('Playlist component running');
-
 @Component({
   selector: 'app-playlist-component',
   templateUrl: './playlist.component.html',
@@ -17,17 +15,20 @@ export class PlaylistComponent implements OnInit {
     this.playlistService.getPlaylist()
       .subscribe(response => {
         this.playlist = response.json();
+      }, error => {
+        console.error('An unexpected error occurred', error);
       });
   }
 
   createAlbum(input: HTMLInputElement) {
-    const album = {title: input.value};
+    let album = {title: input.value};
 
     this.playlistService.createAlbum(album)
       .subscribe(response => {
-        console.log(response.json());
         album['id'] = response.json().id;
         this.playlist.splice(0, 0, album);
+      }, error => {
+        console.error('An unexpected error occurred', error);
       });
   }
 
@@ -35,14 +36,19 @@ export class PlaylistComponent implements OnInit {
     this.playlistService.updateAlbum(album)
       .subscribe(response => {
         console.log(response.json());
+      }, error => {
+        console.error('An unexpected error occurred', error);
       });
   }
 
   deleteAlbum(album) {
     this.playlistService.deleteAlbum(album.id)
       .subscribe(response => {
-        const index = this.playlist.indexOf(album);
+        let index = this.playlist.indexOf(album);
+
         this.playlist.splice(index, 1);
+      }, error => {
+        console.error('An unexpected error occurred', error);
       });
   }
 }
