@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PlaylistService } from './playlist.service';
+import { Response } from '@angular/http';
 
 @Component({
   selector: 'app-playlist-component',
@@ -13,9 +14,11 @@ export class PlaylistComponent implements OnInit {
 
   ngOnInit() {
     this.playlistService.getPlaylist()
-      .subscribe(response => {
+      .subscribe(
+        response => {
         this.playlist = response.json();
-      }, error => {
+        },
+        (error: Response) => {
         console.error('An unexpected error occurred', error);
       });
   }
@@ -24,30 +27,43 @@ export class PlaylistComponent implements OnInit {
     let album = {title: input.value};
 
     this.playlistService.createAlbum(album)
-      .subscribe(response => {
+      .subscribe(
+        response => {
         album['id'] = response.json().id;
         this.playlist.splice(0, 0, album);
-      }, error => {
-        console.error('An unexpected error occurred', error);
+        },
+        (error: Response) => {
+          if (error.status === 400) {
+            console.error('Create album error', error.json());
+          } else {
+            console.error('An unexpected error occurred', error);
+          }
       });
   }
 
   updateAlbum(album) {
     this.playlistService.updateAlbum(album)
-      .subscribe(response => {
+      .subscribe(
+        response => {
         console.log(response.json());
-      }, error => {
+      },
+        error => {
         console.error('An unexpected error occurred', error);
       });
   }
 
   deleteAlbum(album) {
     this.playlistService.deleteAlbum(album.id)
-      .subscribe(response => {
+      .subscribe(
+        response => {
         let index = this.playlist.indexOf(album);
 
         this.playlist.splice(index, 1);
-      }, error => {
+        },
+        (error: Response) => {
+          if (error.status === 404) {
+            console.error('This post has already been deleted');
+          }
         console.error('An unexpected error occurred', error);
       });
   }
