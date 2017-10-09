@@ -17,4 +17,12 @@ export class PlaylistService {
       return this.http.post(this.url, JSON.stringify(album));
   }
 
+  updateAlbum(album) {
+    return this.http.put(this.url + '/' + album.id, album);
+  }
+
+  deleteAlbum(id) {
+    return this.http.delete(this.url + '/' + id);
+  }
+
 }

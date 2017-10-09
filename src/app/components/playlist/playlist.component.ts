@@ -26,7 +26,23 @@ export class PlaylistComponent implements OnInit {
     this.playlistService.createAlbum(album)
       .subscribe(response => {
         console.log(response.json());
+        album['id'] = response.json().id;
+        this.playlist.splice(0, 0, album);
       });
   }
 
+  updateAlbum(album) {
+    this.playlistService.updateAlbum(album)
+      .subscribe(response => {
+        console.log(response.json());
+      });
+  }
+
+  deleteAlbum(album) {
+    this.playlistService.deleteAlbum(album.id)
+      .subscribe(response => {
+        const index = this.playlist.indexOf(album);
+        this.playlist.splice(index, 1);
+      });
+  }
 }
