@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PlaylistService } from './playlist.service';
+import { PlaylistService } from '../../services/playlist.service';
 import { AppError } from "../../common/app-error";
 import {NotFoundError} from "../../common/not-found-error";
 import {BadInput} from "../../common/bad-input";
@@ -16,14 +16,14 @@ export class PlaylistComponent implements OnInit {
   constructor(private playlistService: PlaylistService) { }
 
   ngOnInit() {
-    this.playlistService.getPlaylist()
+    this.playlistService.getAll()
       .subscribe(albums => this.playlist = albums);
   }
 
   createAlbum(input: HTMLInputElement) {
     let album = {title: input.value};
 
-    this.playlistService.createAlbum(album)
+    this.playlistService.create(album)
       .subscribe(newAlbum => {
           album['id'] = newAlbum.id;
           this.playlist.splice(0, 0, album);
@@ -39,14 +39,14 @@ export class PlaylistComponent implements OnInit {
   }
 
   updateAlbum(album) {
-    this.playlistService.updateAlbum(album)
+    this.playlistService.update(album)
       .subscribe(updatedAlbum => {
         console.log(updatedAlbum);
       });
   }
 
   deleteAlbum(album) {
-    this.playlistService.deleteAlbum(album.id)
+    this.playlistService.delete(album.id)
       .subscribe(
         () => {
         let index = this.playlist.indexOf(album);

@@ -18,7 +18,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 
 import { SingersDataService } from './services/singers-data.service';
-import { PlaylistService} from './components/playlist/playlist.service';
+import { PlaylistService} from './services/playlist.service';
 import { SearchPipe } from './pipes/search.pipe';
 import { AppErrorHandler } from "./common/app-error-handler";
 
