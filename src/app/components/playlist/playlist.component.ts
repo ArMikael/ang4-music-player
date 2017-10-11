@@ -1,12 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { PlaylistService } from './playlist.service';
-import { Response } from '@angular/http';
+import { AppError } from "../../common/app-error";
+import {NotFoundError} from "../../common/not-found-error";
+import {BadInput} from "../../common/bad-input";
 
 @Component({
   selector: 'app-playlist-component',
   templateUrl: './playlist.component.html',
   styleUrls: ['./playlist.component.scss']
 })
+
 export class PlaylistComponent implements OnInit {
   playlist: Object[];
 
@@ -24,6 +27,14 @@ export class PlaylistComponent implements OnInit {
       .subscribe(newAlbum => {
           album['id'] = newAlbum.id;
           this.playlist.splice(0, 0, album);
+        },
+        (error: AppError) => {
+          if (error instanceof BadInput) {
+            // this.form.setErrors(error.originalError);
+            console.log('Bad Input Error');
+          } else {
+            throw error;
+          }
         });
   }
 
@@ -41,6 +52,13 @@ export class PlaylistComponent implements OnInit {
         let index = this.playlist.indexOf(album);
 
         this.playlist.splice(index, 1);
+      },
+        (error: AppError) => {
+          if (error instanceof NotFoundError) {
+            console.log('This post has already been deleted.');
+          } else {
+            throw error;
+          }
         });
   }
 }

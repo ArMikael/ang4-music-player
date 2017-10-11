@@ -20,7 +20,7 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { SingersDataService } from './services/singers-data.service';
 import { PlaylistService} from './components/playlist/playlist.service';
 import { SearchPipe } from './pipes/search.pipe';
-import {AppErrorHandler} from "./common/app-error-handler";
+import { AppErrorHandler } from "./common/app-error-handler";
 
 
 @NgModule({
