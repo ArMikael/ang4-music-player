@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
@@ -20,6 +20,7 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { SingersDataService } from './services/singers-data.service';
 import { PlaylistService} from './components/playlist/playlist.service';
 import { SearchPipe } from './pipes/search.pipe';
+import {AppErrorHandler} from "./common/app-error-handler";
 
 
 @NgModule({
@@ -65,7 +66,14 @@ import { SearchPipe } from './pipes/search.pipe';
       }
     ])
   ],
-  providers: [SingersDataService, PlaylistService],
-  bootstrap: [AppComponent]
+  providers: [
+    SingersDataService,
+    PlaylistService,
+    // Instead of using default Angular error handler use new provided class to represent and save it as we want
+    { provide: ErrorHandler, useClass: AppErrorHandler}
+  ],
+  bootstrap: [
+    AppComponent
+  ]
 })
 export class AppModule { }

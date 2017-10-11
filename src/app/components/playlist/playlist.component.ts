@@ -25,13 +25,6 @@ export class PlaylistComponent implements OnInit {
           album['id'] = newAlbum.id;
           this.playlist.splice(0, 0, album);
         });
-      //   (error: Response) => {
-      //     if (error.status === 400) {
-      //       console.error('Create album error', error.json());
-      //     } else {
-      //       console.error('An unexpected error occurred', error);
-      //     }
-      // });
   }
 
   updateAlbum(album) {
@@ -48,12 +41,6 @@ export class PlaylistComponent implements OnInit {
         let index = this.playlist.indexOf(album);
 
         this.playlist.splice(index, 1);
-        },
-        (error: Response) => {
-          if (error.status === 404) {
-            console.error('This post has already been deleted');
-          }
-        console.error('An unexpected error occurred', error);
-      });
+        });
   }
 }
