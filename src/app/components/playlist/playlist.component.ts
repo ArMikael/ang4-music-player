@@ -14,48 +14,37 @@ export class PlaylistComponent implements OnInit {
 
   ngOnInit() {
     this.playlistService.getPlaylist()
-      .subscribe(
-        response => {
-        this.playlist = response.json();
-        },
-        (error: Response) => {
-        console.error('An unexpected error occurred', error);
-      });
+      .subscribe(albums => this.playlist = albums);
   }
 
   createAlbum(input: HTMLInputElement) {
     let album = {title: input.value};
 
     this.playlistService.createAlbum(album)
-      .subscribe(
-        response => {
-        album['id'] = response.json().id;
-        this.playlist.splice(0, 0, album);
-        },
-        (error: Response) => {
-          if (error.status === 400) {
-            console.error('Create album error', error.json());
-          } else {
-            console.error('An unexpected error occurred', error);
-          }
-      });
+      .subscribe(newAlbum => {
+          album['id'] = newAlbum.id;
+          this.playlist.splice(0, 0, album);
+        });
+      //   (error: Response) => {
+      //     if (error.status === 400) {
+      //       console.error('Create album error', error.json());
+      //     } else {
+      //       console.error('An unexpected error occurred', error);
+      //     }
+      // });
   }
 
   updateAlbum(album) {
     this.playlistService.updateAlbum(album)
-      .subscribe(
-        response => {
-        console.log(response.json());
-      },
-        error => {
-        console.error('An unexpected error occurred', error);
+      .subscribe(updatedAlbum => {
+        console.log(updatedAlbum);
       });
   }
 
   deleteAlbum(album) {
     this.playlistService.deleteAlbum(album.id)
       .subscribe(
-        response => {
+        () => {
         let index = this.playlist.indexOf(album);
 
         this.playlist.splice(index, 1);
