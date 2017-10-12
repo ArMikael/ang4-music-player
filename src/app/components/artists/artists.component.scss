@@ -1,0 +1,25 @@
+form {
+  font-size: 16px;
+}
+
+fieldset {
+  border: none;
+}
+
+input {
+  width: 180px;
+  height: 24px;
+  line-height: 24px;
+  font-size: 14px;
+  padding: 0 6px;
+
+  &::placeholder {
+    color: lightgray;
+    font-style: italic;
+  }
+}
+
+.submit-button {
+  width: 200px;
+  height: 40px;
+}

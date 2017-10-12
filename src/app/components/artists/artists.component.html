@@ -1,3 +1,17 @@
-<p>
-  artists works!
-</p>
+<form #artistForm (submit)="addNewArtist(artistForm)">
+  <fieldset>
+    <input type="text" id="artistName" ngModel name="name" placeholder="Artist Name">
+  </fieldset>
+
+  <fieldset>
+    <input type="text" id="artistGenre" name="genre" placeholder="Artist Genre">
+  </fieldset>
+
+  <fieldset>
+    <input type="text" id="artistSong" name="song" placeholder="The most popular song">
+  </fieldset>
+
+  <fieldset>
+    <input type="submit" class="submit-button">
+  </fieldset>
+</form>

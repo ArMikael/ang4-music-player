@@ -12,4 +12,8 @@ export class ArtistsComponent implements OnInit {
   ngOnInit() {
   }
 
+  addNewArtist(form) {
+    console.log(form);
+  }
+
 }
