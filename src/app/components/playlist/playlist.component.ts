@@ -21,14 +21,16 @@ export class PlaylistComponent implements OnInit {
   }
 
   createAlbum(input: HTMLInputElement) {
-    let album = {title: input.value};
+    let album = { title: input.value };
+    this.playlist.splice(0, 0, album);
 
     this.playlistService.create(album)
       .subscribe(newAlbum => {
           album['id'] = newAlbum.id;
-          this.playlist.splice(0, 0, album);
         },
         (error: AppError) => {
+          this.playlist.splice(0, 1);
+
           if (error instanceof BadInput) {
             // this.form.setErrors(error.originalError);
             console.log('Bad Input Error');
@@ -46,14 +48,15 @@ export class PlaylistComponent implements OnInit {
   }
 
   deleteAlbum(album) {
+    let index = this.playlist.indexOf(album);
+    this.playlist.splice(index, 1);
+
     this.playlistService.delete(album.id)
       .subscribe(
-        () => {
-        let index = this.playlist.indexOf(album);
-
-        this.playlist.splice(index, 1);
-      },
+        null,
         (error: AppError) => {
+          this.playlist.splice(index, 0, album);
+
           if (error instanceof NotFoundError) {
             console.log('This post has already been deleted.');
           } else {
