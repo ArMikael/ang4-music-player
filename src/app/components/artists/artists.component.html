@@ -6,8 +6,22 @@
            #artistName="ngModel"
            name="artistName"
            required
+           minlength="2"
+           maxlength="30"
            placeholder="Artist Name">
-    <div class="validation-message" *ngIf="artistName.touched && !artistName.valid">Artist Name is required.</div>
+    <div class="validation-message" *ngIf="artistName.touched && !artistName.valid">
+      <div *ngIf="artistName.errors.required">
+        Artist Name is required.
+      </div>
+      <div *ngIf="artistName.errors.minlength">
+        Artist Name min length is
+        {{ artistName.errors.minlength.requiredLength }}.
+      </div>
+      <div *ngIf="artistName.errors.maxlength">
+        Artist Name max length is
+        {{ artistName.errors.maxlength.requiredLength }}.
+      </div>
+    </div>
   </fieldset>
 
   <fieldset>
@@ -15,12 +29,17 @@
            id="artistGenre"
            ngModel
            #artistGenre="ngModel"
-           name="genre"
+           name="artistGenre"
            placeholder="Artist Genre">
   </fieldset>
 
   <fieldset>
-    <input type="text" id="artistSong" name="song" placeholder="The most popular song">
+    <input type="text"
+           id="artistSong"
+           ngModel
+           #aristSong="ngModel"
+           name="song"
+           placeholder="The most popular song">
   </fieldset>
 
   <fieldset>

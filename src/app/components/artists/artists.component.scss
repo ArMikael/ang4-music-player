@@ -17,6 +17,16 @@ input {
     color: lightgray;
     font-style: italic;
   }
+
+  &.ng-touched.ng-invalid {
+    border: 1px solid red;
+  }
+}
+
+.validation-message {
+  font-size: 14px;
+  padding: 0 6px;
+  color: red;
 }
 
 .submit-button {
@@ -24,3 +34,4 @@ input {
   height: 40px;
   box-sizing: content-box;
 }
+
