@@ -1,10 +1,22 @@
-<form #artistForm (submit)="addNewArtist(artistForm)">
+<form #form="ngForm" (submit)="addNewArtist(form)">
   <fieldset>
-    <input type="text" id="artistName" ngModel name="name" placeholder="Artist Name">
+    <input type="text"
+           id="artistName"
+           ngModel
+           #artistName="ngModel"
+           name="artistName"
+           required
+           placeholder="Artist Name">
+    <div class="validation-message" *ngIf="artistName.touched && !artistName.valid">Artist Name is required.</div>
   </fieldset>
 
   <fieldset>
-    <input type="text" id="artistGenre" name="genre" placeholder="Artist Genre">
+    <input type="text"
+           id="artistGenre"
+           ngModel
+           #artistGenre="ngModel"
+           name="genre"
+           placeholder="Artist Genre">
   </fieldset>
 
   <fieldset>

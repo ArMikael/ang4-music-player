@@ -13,7 +13,7 @@ export class ArtistsComponent implements OnInit {
   }
 
   addNewArtist(form) {
-    console.log(form);
+    console.log(form.value);
   }
 
 }
