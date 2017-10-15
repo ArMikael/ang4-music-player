@@ -39,10 +39,18 @@
            ngModel
            #aristSong="ngModel"
            name="song"
+           required
            placeholder="The most popular song">
   </fieldset>
 
   <fieldset>
-    <input type="submit" class="submit-button">
+    <label>
+      <input type="checkbox" ngModel name="saveArtist" />
+      Please save this artist to playlist
+    </label>
+  </fieldset>
+
+  <fieldset>
+    <input type="submit" class="submit-button" [disabled]="!form.valid">
   </fieldset>
 </form>
