@@ -44,9 +44,17 @@
   </fieldset>
 
   <fieldset>
+    <select ngModel name="artistCountry" id="artistCountry">
+      <option *ngFor="let country of countries" [value]="country.id">
+        {{ country.name }}
+      </option>
+    </select>
+  </fieldset>
+
+  <fieldset>
     <label>
       <input type="checkbox" ngModel name="saveArtist" />
-      Please save this artist to playlist
+      Add this artist to playlist
     </label>
   </fieldset>
 
