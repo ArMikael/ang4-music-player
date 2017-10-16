@@ -37,10 +37,16 @@
     <input type="text"
            id="artistSong"
            ngModel
-           #aristSong="ngModel"
+           #artistSong="ngModel"
            name="song"
            required
            placeholder="The most popular song">
+
+    <div class="validation-message" *ngIf="artistSong.touched && !artistSong.valid">
+      <div *ngIf="artistSong.errors.required">
+        Artist Song is required.
+      </div>
+    </div>
   </fieldset>
 
   <fieldset>
@@ -55,6 +61,18 @@
     <label>
       <input type="checkbox" ngModel name="saveArtist" />
       Add this artist to playlist
+    </label>
+  </fieldset>
+
+  <fieldset>
+    <label for="male">
+      <input type="radio" id="male" name="artistSex" value="1" ngModel>
+      Male
+    </label>
+
+    <label for="female">
+      <input type="radio" id="female" name="artistSex" value="2" ngModel>
+      Female
     </label>
   </fieldset>
 

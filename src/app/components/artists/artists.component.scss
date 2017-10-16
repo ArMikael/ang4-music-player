@@ -36,7 +36,14 @@ select {
 
 .submit-button {
   width: 180px;
-  height: 40px;
+  height: 24px;
   box-sizing: content-box;
+  background-color: deepskyblue;
+  color: white;
+  border: none;
+}
+
+.submit-button:disabled {
+  background-color: lightgray;
 }
 
